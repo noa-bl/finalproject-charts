@@ -1,11 +1,14 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: jenkins-slave
+  name: jenkins-slave-runner
 spec:
   containers:
   - name: builder
-    image: your-builder-image
+    image: ezezeasy/ez-docker-helm-build:1.41
+    imagePullPolicy: Always
+    securityContext:
+      privileged: true
     command:
     - cat
     tty: true
